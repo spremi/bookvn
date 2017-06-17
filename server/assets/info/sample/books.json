@@ -1,0 +1,17 @@
+{
+  "signature" : "BookVn.BOOKS",
+  "data" : {
+    "books" : [
+      {
+        "id": "book1",
+        "title": "BOOK 1"
+      }, {
+        "id": "book2",
+        "title": "BOOK 2"
+      }, {
+        "id": "book3",
+        "title": "BOOK 3"
+      }
+    ]
+  }
+}

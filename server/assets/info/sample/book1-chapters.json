@@ -1,0 +1,24 @@
+{
+  "signature" : "BookVn.CHAPTERS",
+  "data" : {
+    "step": "1",
+    "chapters" : [
+      {
+        "id": "ch1",
+        "title": "Chapter 1",
+        "first": "1",
+        "last": "3"
+      }, {
+        "id": "ch2",
+        "title": "Chapter 2",
+        "first": "4",
+        "last": "5"
+      }, {
+        "id": "ch3",
+        "title": "Chapter 3",
+        "first": "6",
+        "last": "7"
+      }
+    ]
+  }
+}

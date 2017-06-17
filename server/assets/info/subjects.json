@@ -1,0 +1,13 @@
+{
+  "signature" : "BookVn.SUBJECTS",
+  "data" : {
+    "subjects" : [
+      {
+        "id": "sample",
+        "name": "Sample",
+        "short": "Sp",
+        "color": ""
+      }
+    ]
+  }
+}
