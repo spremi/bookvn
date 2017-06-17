@@ -27,6 +27,8 @@ module.exports = function(app) {
   app.use(methodOverride());
   app.use(cookieParser());
 
+  app.use('/cab', express.static(path.join(config.root, 'server', 'assets', "cabinet")));
+
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
