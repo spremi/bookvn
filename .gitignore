@@ -6,3 +6,21 @@ client/bower_components
 dist
 /server/config/local.env.js
 npm-debug.log
+
+#
+# Patch & Diff files
+#
+*.rej
+*.orig
+*.diff
+*.patch
+
+#
+# IDE generated workspace
+#
+*.workspace
+
+#
+# Specifically, don't ignore these files
+#
+!.gitignore
