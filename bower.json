@@ -2,10 +2,10 @@
   "name": "book-vn",
   "version": "0.0.0",
   "dependencies": {
-    "angular": ">=1.6.*",
-    "angular-cookies": ">=1.6.*",
-    "angular-resource": ">=1.6.*",
-    "angular-sanitize": ">=1.6.*",
+    "angular": "~1.5.11",
+    "angular-cookies": "~1.5.11",
+    "angular-resource": "~1.5.11",
+    "angular-sanitize": "~1.5.11",
     "angular-ui-router": "~1.0.4",
     "es5-shim": "~4.5.9",
     "font-awesome": ">=4.7.0",
@@ -13,7 +13,7 @@
     "lodash": "~4.17.4"
   },
   "devDependencies": {
-    "angular-mocks": ">=1.6.*",
-    "angular-scenario": ">=1.6.*"
+    "angular-mocks": "~1.5.11",
+    "angular-scenario": "~1.5.11"
   }
 }
