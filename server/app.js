@@ -24,6 +24,12 @@ global.SIGN_CHAPTERS  = 'BookVn.CHAPTERS';
 
 var express = require('express');
 var config = require('./config/environment');
+
+//
+// Define path to base of the application
+//
+global.BASE_APP = config.root;
+
 // Setup server
 var app = express();
 var server = require('http').createServer(app);
