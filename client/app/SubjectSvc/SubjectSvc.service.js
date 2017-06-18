@@ -1,6 +1,57 @@
+//
+// [BookVn] client/app/SubjectSvc/SubjectSvc.service.js
+//
+// Implements service 'SubjectSvc.
+//
+// (c) 2017 Sanjeev Premi (spremi@ymail.com)
+//
+// SPDX-License-Identifier: BSD-3-Clause
+//                          (http://spdx.org/licenses/BSD-3-Clause.html)
+//
+
+
 'use strict';
 
 angular.module('bookVnApp')
-  .service('SubjectSvc', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .service('SubjectSvc', function ($q, $http) {
+
+    /**
+     * Encapsulates list of subjects configured.
+     * Flag 'resolved' is used to avoid repeated $http.get(),
+     * when no subject was configured.
+     */
+    var Subjects = {
+      list: [],
+      resolved: false
+    };
+
+
+    /**
+     * Get list of subjects.
+     */
+    this.list = function () {
+      var deferred = $q.defer();
+
+      //
+      // Return list, if already available.
+      //
+      if (Subjects.resolved && (Object.keys(Subjects).length !== 0)) {
+        return $q.when(Subjects.list);
+      }
+
+      Subjects.resolved = false;
+      Subjects.list = [];
+
+      $http.get('/api/info/subjects').then(
+        function (result) {
+          Subjects.list = result.data.subjects;
+          Subjects.resolved = true;
+
+          deferred.resolve(Subjects.list);
+        }, function () {
+          deferred.reject();
+        });
+
+      return deferred.promise;
+    };
   });
