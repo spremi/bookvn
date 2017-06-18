@@ -56,4 +56,23 @@ angular.module('bookVnApp')
 
       return deferred.promise;
     };
+
+    /**
+     * Get title of the book for specified subject & book 'id'
+     */
+    this.title = function (subId, bkId) {
+      if ((Books.resolved) &&
+          (Books.subjectId === subId) &&
+          (Books.list.length > 0)) {
+        var bk = Books.list.filter(function (b) {
+                    return (b.id === bkId);
+                  });
+
+        if (Array.isArray(bk) && (bk.length > 0)) {
+          return bk[0].title;
+        }
+      }
+
+      return '';
+    };
   });
