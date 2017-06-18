@@ -1,3 +1,8 @@
-<div class="col-md-12">
-This is the book view.
+<bkvn-status></bkvn-status>
+<h2>Select a book</h2>
+<div ng-if="Books.length === 0">
+  <h3>No book configured.</h3>
+</div>
+<div class="bkvn-items" ng-if="Books.length > 0">
+  <bkvn-book ng-repeat="book in Books" book="book"></bkvn-book>
 </div>
