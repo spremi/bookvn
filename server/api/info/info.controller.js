@@ -88,6 +88,43 @@ exports.bookInfo = function (req, res) {
 };
 
 /**
+ * Get information about chapters in a book
+ */
+exports.chapterInfo = function (req, res) {
+  var subject = req.params.sub;
+  var book = req.params.bk;
+
+  var fileName = path.join(PathInfo, subject, book + '-chapters.json');
+
+  fs.readFile(fileName, 'utf8',
+    function (err, data) {
+      if (err) {
+        res.status(500)
+          .send('info: chapters: Error reading the file.');
+
+        return;
+      }
+
+      try {
+        var obj = JSON.parse(data);
+
+        if ((obj.signature !== undefined) &&
+          (obj.data !== undefined) &&
+          (obj.signature === global.SIGN_CHAPTERS)) {
+          res.status(200)
+            .json(obj.data);
+        } else {
+          res.status(500)
+            .send('info: chapters: Invalid data.');
+        }
+      } catch (e) {
+        res.status(500)
+          .send('info: chapters: Error parsing information.');
+      }
+    });
+};
+
+/**
  * Default route - leave as-is
  */
 exports.index = function(req, res) {
