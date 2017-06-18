@@ -54,4 +54,21 @@ angular.module('bookVnApp')
 
       return deferred.promise;
     };
+
+    /**
+     * Get name of the subject for specified 'id'
+     */
+    this.name = function (subId) {
+      if ((Subjects.resolved) && (Subjects.list.length > 0)) {
+        var sub = Subjects.list.filter(function (s) {
+                    return (s.id === subId);
+                  });
+
+        if (Array.isArray(sub) && (sub.length > 0)) {
+          return sub[0].name;
+        }
+      }
+
+      return '';
+    };
   });
