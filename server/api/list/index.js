@@ -17,6 +17,7 @@ var controller = require('./list.controller');
 
 var router = express.Router();
 
+router.get('/subject/:sub/book/:bk/pages', controller.pageList);
 router.get('/subject/:sub/books', controller.bookList);
 router.get('/subjects', controller.subjectList);
 router.get('/', controller.index);

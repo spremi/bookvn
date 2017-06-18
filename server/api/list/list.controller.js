@@ -80,6 +80,45 @@ exports.bookList = function (req, res) {
     });
 };
 
+
+/**
+ * Get list of pages in a book.
+ *
+ * All pages are images (*.jpg | *.png)
+ */
+exports.pageList = function(req, res) {
+  var subject = req.params.sub;
+  var book = req.params.bk;
+
+  var pathBook = path.join(PathCabinet, subject, book);
+
+  fs.readdir(pathBook,
+    function (err, items) {
+      if (err) {
+        res.status(500)
+          .send('list: pages: Error reading directory (' + subject + '/' + book + ').');
+
+        return;
+      }
+
+      var pages = [];
+
+      for (var i = 0; i < items.length; i++) {
+        var stat = fs.statSync(path.join(pathBook, items[i]));
+
+        if (stat.isFile()) {
+          var ext = path.extname(items[i]).toLowerCase();
+
+          if ((ext === ".jpg") || (ext === ".png")) {
+            pages.push(items[i]);
+          }
+        }
+      }
+
+      res.status(200).json(pages);
+    });
+};
+
 /**
  * Default route - leave as-is
  */
