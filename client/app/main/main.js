@@ -1,3 +1,15 @@
+//
+// [BookVn] client/app/main/main.js
+//
+// Describes state 'main'.
+//
+// (c) 2017 Sanjeev Premi (spremi@ymail.com)
+//
+// SPDX-License-Identifier: BSD-3-Clause
+//                          (http://spdx.org/licenses/BSD-3-Clause.html)
+//
+
+
 'use strict';
 
 angular.module('bookVnApp')
@@ -5,7 +17,15 @@ angular.module('bookVnApp')
     $stateProvider
       .state('main', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        views: {
+          'footer': {
+            templateUrl: 'templates/app-footer.html',
+            controller: 'AppFooterCtrl'
+          },
+          '': {
+            templateUrl: 'app/main/main.html',
+            controller: 'MainCtrl'
+          }
+        }
       });
   });
