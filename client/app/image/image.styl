@@ -1,0 +1,43 @@
+/*
+ * [BookVn] client/app/image/image.styl
+ *
+ * Styles for state 'image'.
+ *
+ * (c) 2017 Sanjeev Premi (spremi@ymail.com)
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ *                          (http://spdx.org/licenses/BSD-3-Clause.html)
+ */
+
+
+.bkvn-prev-image
+.bkvn-next-image
+  position          fixed
+  top               calc(50% - 24px)
+
+  min-width         48px
+  min-height        48px
+  line-height       48px
+
+  border-radius     24px
+
+  background-color  gray     // Temporary... for some contrast
+
+  text-align        center
+  vertical-align    middle
+
+  font-size         2rem
+
+  opacity           0.5
+
+  transition        all 250ms linear
+
+  &:hover
+    opacity         1.0
+
+
+.bkvn-prev-image
+  left    8px
+
+.bkvn-next-image
+  right   8px
