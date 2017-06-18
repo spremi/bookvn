@@ -1,3 +1,8 @@
-<div class="col-md-12">
-This is the page view.
+<bkvn-status></bkvn-status>
+<h2>Select a page</h2>
+<div ng-if="NoPages">
+  <h3>No pages configured.</h3>
+</div>
+<div class="bkvn-items" ng-if="!NoPages">
+  <bkvn-page ng-repeat="page in Pages" page="page"></bkvn-page>
 </div>
