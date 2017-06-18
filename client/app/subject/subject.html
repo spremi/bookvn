@@ -1,3 +1,8 @@
-<div class="col-md-12">
-This is the subject view.
+<bkvn-status></bkvn-status>
+<h2>Select a subject</h2>
+<div ng-if="Subjects.length === 0">
+  <h3>No subject configured.</h3>
+</div>
+<div class="bkvn-items" ng-if="Subjects.length > 0">
+  <bkvn-subject ng-repeat="subject in Subjects" subject="subject"></bkvn-subject>
 </div>
