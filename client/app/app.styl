@@ -1,3 +1,15 @@
+/*
+ * [BookVn] client/app/app.styl
+ *
+ * Application-wide styles.
+ *
+ * (c) 2017 Sanjeev Premi (spremi@ymail.com)
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ *                          (http://spdx.org/licenses/BSD-3-Clause.html)
+ */
+
+
 @import "font-awesome/css/font-awesome.css"
 
 //
@@ -14,9 +26,73 @@
   font-weight: normal
   font-style: normal
 
+
+*
+  box-sizing    border-box
+
+
+html
+  height        100%
+  font-size     16px
+
+
+body
+  display       flex
+  margin        0px
+  height        100%
+
+  flex-grow     1                       // Fill available area
+  flex-flow     column                  // Layout for child elements
+
+
+a
+  outline           0
+  text-decoration   none
+
+
 //
-// App-wide Styles
+// Header
 //
+#app-header
+  display           flex
+  flex-flow         row                 // Layout for child elements
+  justify-content   space-between
+
+  min-height        64px
+  height            64px
+
+
+//
+// Content area
+//
+#app-content
+  display           flex
+  flex-grow         1                   // Fill available area
+  flex-flow         column              // Layout for child elements
+  padding           16px
+  align-items       stretch
+  overflow-y        auto
+
+
+//
+// Footer
+//
+#app-footer
+  display           flex
+  flex-flow         row                 // Layout for child elements
+  justify-content   space-between
+
+  min-height        32px
+  height            32px
+
+
+//
+// Container for bkvn-{subject|book|chapter|page} items
+//
+.bkvn-items
+  display           flex
+  flex-flow         row                 // Layout for child elements
+  flex-wrap         wrap
 
 
 // Responsive: Portrait tablets and up

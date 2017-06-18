@@ -27,7 +27,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div id="app-header" ui-view="header"></div>
+    <div id="app-content" ui-view=""></div>
+    <div id="app-footer" ui-view="footer"></div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
