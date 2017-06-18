@@ -47,6 +47,38 @@ exports.subjectList = function (req, res) {
     });
 };
 
+/**
+ * Returns list of books for a subjects
+ *
+ * Each directory in 'PathCabinet/subject' corresponds to a book.
+ */
+exports.bookList = function (req, res) {
+  var subject = req.params.sub;
+
+  var pathSubject = path.join(PathCabinet, subject);
+
+  fs.readdir(pathSubject,
+    function (err, items) {
+      if (err) {
+        res.status(500)
+          .send('list: books: Error reading directory.');
+
+        return;
+      }
+
+      var books = [];
+
+      for (var i = 0; i < items.length; i++) {
+        var stat = fs.statSync(path.join(pathSubject, items[i]));
+
+        if (stat.isDirectory()) {
+          books.push(items[i]);
+        }
+      }
+
+      res.status(200).json(books);
+    });
+};
 
 /**
  * Default route - leave as-is
