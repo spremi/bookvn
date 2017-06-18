@@ -1,3 +1,8 @@
-<div class="col-md-12">
-This is the chapter view.
+<bkvn-status></bkvn-status>
+<h2>Select a chapter</h2>
+<div ng-if="Chapters.length === 0">
+  <h3>No chapter configured.</h3>
+</div>
+<div class="bkvn-items" ng-if="Chapters.length > 0">
+  <bkvn-chapter ng-repeat="chapter in Chapters" chapter="chapter"></bkvn-chapter>
 </div>
