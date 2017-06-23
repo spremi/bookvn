@@ -67,13 +67,18 @@ angular.module('bookVnApp')
         canvas.width  = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
-        //
-        // Scaling information
-        //
         var CurrentScale = 1.0;
+
+        var Origin = {
+          x: canvas.width / 2,
+          y: canvas.height / 2
+        };
 
         var image = new Image();
         image.src = scope.url;
+
+        var mouseIsDown = false;
+        var mouseDrag = {};
 
         /**
          * Renders an image on the canvas
@@ -92,7 +97,7 @@ angular.module('bookVnApp')
           //
           // Move origin to center of the canvas
           //
-          context.translate(canvas.width/2, canvas.height/2);
+          context.translate(Origin.x, Origin.y);
 
           //
           // Scale the image
@@ -143,6 +148,46 @@ angular.module('bookVnApp')
 
           return false;
         };
+
+        /**
+         * Handle 'mousedown' event
+         */
+        var onMouseDown = function (event) {
+          mouseIsDown = true;
+
+          mouseDrag.x = event.clientX - Origin.x;
+          mouseDrag.y = event.clientY - Origin.y;
+        };
+
+        /**
+         * Handle 'mouseup' event
+         */
+        var onMouseUp = function () {
+          mouseIsDown = false;
+        };
+
+        /**
+         * Handle 'mousemove' event
+         */
+        var onMouseMove = function (event) {
+          if (mouseIsDown) {
+            Origin.x = event.clientX - mouseDrag.x;
+            Origin.y = event.clientY - mouseDrag.y;
+
+            renderImage();
+          }
+        };
+
+        //
+        // Bind event handlers
+        //
+        angular.element(canvas).bind('mousedown', onMouseDown);
+
+        angular.element(canvas).bind('mouseup', onMouseUp);
+        angular.element(canvas).bind('mouseover', onMouseUp);
+        angular.element(canvas).bind('mouseout', onMouseUp);
+
+        angular.element(canvas).bind('mousemove', onMouseMove);
 
         // For Chrome
         angular.element(canvas).bind('mousewheel', zoomImage);
