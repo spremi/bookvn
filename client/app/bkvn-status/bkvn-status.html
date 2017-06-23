@@ -1,1 +1,7 @@
-<div>this is the bkvnStatus directive</div>
+<span ng-if="subject !== null" class="status">{{subject}}</span>
+<span ng-if="book !== null" class="hyphen">&rsaquo;</span>
+<span ng-if="book !== null" class="status">{{book}}</span>
+<span ng-if="chapter !== null" class="hyphen">&rsaquo;</span>
+<span ng-if="chapter !== null" class="status">{{chapter}}</span>
+<span ng-if="page !== null" class="hyphen">&rsaquo;</span>
+<span ng-if="page !== null" class="status">Pg {{page}}</span>
