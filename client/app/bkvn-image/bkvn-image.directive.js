@@ -178,6 +178,20 @@ angular.module('bookVnApp')
           }
         };
 
+        /**
+         * Handle 'dblclick' event
+         */
+        var onDblClick = function () {
+          CurrentScale = 1.0;
+
+          Origin = {
+            x: canvas.width / 2,
+            y: canvas.height / 2
+          };
+
+          renderImage();
+        };
+
         //
         // Bind event handlers
         //
@@ -188,6 +202,8 @@ angular.module('bookVnApp')
         angular.element(canvas).bind('mouseout', onMouseUp);
 
         angular.element(canvas).bind('mousemove', onMouseMove);
+
+        angular.element(canvas).bind('dblclick', onDblClick);
 
         // For Chrome
         angular.element(canvas).bind('mousewheel', zoomImage);
