@@ -1,3 +1,9 @@
 <div class="bkvn-logo-sm">
   <span class='bkvn-logo-sm-1'>Book</span><span class='bkvn-logo-sm-2'>Vn</span>
 </div>
+<div class="bkvn-nav">
+ <a ng-if="argSubject !== null" ui-sref="subject">Subjects</a>
+ <a ng-if="argBook !== null" ui-sref="book(argBook)">Books</a>
+ <a ng-if="argChapter !== null" ui-sref="chapter(argChapter)">Chapters</a>
+ <a ng-if="argPage !== null" ui-sref="page(argPage)">Pages</a>
+</div>
