@@ -1,0 +1,88 @@
+i//
+// [BookVn] client/app/app-colors.styl
+//
+// Defines colors used by the application.
+//
+// (c) 2017 Sanjeev Premi (spremi@ymail.com)
+//
+// SPDX-License-Identifier: BSD-3-Clause
+//                          (http://spdx.org/licenses/BSD-3-Clause.html)
+//
+
+
+//
+// Application logo
+//
+.bkvn-logo-1
+.bkvn-logo-sm-1
+  background-color    #ff5722
+
+
+.bkvn-logo-2
+.bkvn-logo-sm-2
+  background-color    #4caf50
+
+
+//
+// Primary colors
+//
+p-1-normal  = #546e7a
+p-1-light   = #819ca9
+p-1-dark    = #29434e
+
+t-1-light   = #e1f5fe
+t-1-dark    = #263238
+t-1-link    = #ffda99
+
+
+//
+// Anchors
+//
+a
+a:link
+a:visited
+  color       t-1-light
+
+  &:hover
+    color     t-1-link
+
+
+//
+// Application header
+//
+#app-header
+  background-color  p-1-dark
+  color             t-1-light
+
+
+//
+// Application content
+//
+#app-content
+  background-color  p-1-normal
+  color             t-1-light
+
+  h2
+    border-bottom   2px solid t-1-light
+
+
+//
+// Application footer
+//
+#app-footer
+  background-color  p-1-normal
+  color             p-1-dark
+
+
+bkvn-footer
+  .bkvn-author
+    transition  color 500ms ease-in-out
+
+    &:hover
+      color     #ffecb3
+
+  .bkvn-donee
+    transition  color 500ms ease-in-out
+
+    &:hover
+      color     #f8bbd0
