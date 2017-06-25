@@ -552,6 +552,11 @@ module.exports = function (grunt) {
           }
         ]
       }
+    },
+    shell: {
+      'dist-depends': {
+        command: 'cd <%= yeoman.dist %> && npm install --production'
+      }
     }
   });
 
