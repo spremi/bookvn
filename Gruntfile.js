@@ -540,6 +540,19 @@ module.exports = function (grunt) {
         }
       }
     },
+    'regex-replace': {
+      version: {
+        src: '.tmp/templates.js',
+        actions: [
+          {
+            name: 'update-version',
+            search: '@@VERSION@@',
+            replace: '<%= pkg.version %>',
+            flags: 'g'
+          }
+        ]
+      }
+    }
   });
 
   // Used for delaying livereload until after server has restarted
@@ -647,6 +660,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'postcss',
     'ngtemplates',
+    'regex-replace:version',
     'concat',
     'ngAnnotate',
     'copy:dist',
