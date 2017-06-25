@@ -695,4 +695,14 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('bundle', function () {
+    grunt.log.ok('Creating distribution package');
+    grunt.task.run([
+      'shell:dist-depends',
+      'compress:dist'
+    ]);
+  });
+
+
 };
