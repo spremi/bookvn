@@ -557,6 +557,21 @@ module.exports = function (grunt) {
       'dist-depends': {
         command: 'cd <%= yeoman.dist %> && npm install --production'
       }
+    },
+    compress: {
+      dist: {
+        options: {
+          archive: 'bookvn-<%= pkg.version %>.zip'
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/',
+            src: ['**'],
+            dest: 'bookvn-<%= pkg.version %>'
+          }
+        ]
+      }
     }
   });
 
