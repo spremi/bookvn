@@ -72,7 +72,7 @@ angular.module('bookVnApp')
             ChapterSvc.list($stateParams.sub, $stateParams.bk).then(
               function (data) {
                 var chapter = data.filter(function (o) {
-                                return o.id == $stateParams.ch;
+                                return o.id === $stateParams.ch;
                               });
 
                 $scope.argPage = {
