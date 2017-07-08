@@ -1,0 +1,16 @@
+[Unit]
+Description=BookVn Server
+
+[Service]
+ExecStart=/opt/node/v6.11.0/bin/node /home/www/bookvn/server/app.js
+Restart=always
+RestartSec=5
+User=bookvn
+Group=bookvn
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=bookvn
+Environment=NODE_ENV=production PORT=9900
+
+[Install]
+WantedBy=multi-user.target
