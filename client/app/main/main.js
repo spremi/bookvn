@@ -18,6 +18,10 @@ angular.module('bookVnApp')
       .state('main', {
         url: '/',
         views: {
+          'header': {
+            templateUrl: 'templates/app-header.html',
+            controller: 'AppHeaderCtrl'
+          },
           'footer': {
             templateUrl: 'templates/app-footer.html',
             controller: 'AppFooterCtrl'
